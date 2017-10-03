@@ -59,6 +59,7 @@ class FileUploadTask extends DefaultTask {
       }
       response.failure = {
         logger.error('unable to upload file: {}', settings.file)
+        throw new GradleException("Upload failed")
         HttpResponseUtil.logResponse(it)
       }
     }
